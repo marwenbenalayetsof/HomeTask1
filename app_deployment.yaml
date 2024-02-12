@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-engineering-test-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: data-engineering-test
+  template:
+    metadata:
+      labels:
+        app: data-engineering-test
+    spec:
+      containers:
+      - name: data-engineering-test
+        image: test-image:latest
+        ports:
+        - containerPort: 8000
